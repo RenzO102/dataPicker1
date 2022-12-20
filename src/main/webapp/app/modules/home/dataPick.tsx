@@ -1,28 +1,42 @@
-import React, { useState } from 'react';
+import React, { FC } from 'react';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-function TableDatePicker() {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
-  console.log(startDate);
-  console.log(endDate);
-
-  return (
-    <div style={{ margin: 20 }}>
-      <DatePicker selected={startDate} selectsStart startDate={startDate} endDate={endDate} onChange={date => setStartDate(date)} />
-
-      <DatePicker
-        selected={endDate}
-        selectsEnd
-        startDate={startDate}
-        endDate={endDate}
-        minDate={startDate}
-        onChange={date => setEndDate(date)}
-      />
-    </div>
-  );
+interface Props {
+  startDate: Date;
+  pickStartDate: (date: Date) => void;
+  endDate: Date;
+  pickEndDate: (date: Date) => void;
 }
+
+export const TableDatePicker: FC<Props> = props => {
+  return (
+    <>
+      <div style={{ marginBottom: 20 }}>
+        <DatePicker
+          selected={props.startDate}
+          selectsStart
+          startDate={props.startDate}
+          endDate={props.endDate}
+          onSelect={props.pickStartDate}
+          dateFormat={'dd.MM.yy'}
+          style={{ marginBottom: 20 }}
+        />
+      </div>
+      <div>
+        <DatePicker
+          selected={props.endDate}
+          selectsEnd
+          startDate={props.startDate}
+          endDate={props.endDate}
+          minDate={props.startDate}
+          onSelect={props.pickEndDate}
+          dateFormat={'dd.MM.yy'}
+        />
+      </div>
+    </>
+  );
+};
 
 export default TableDatePicker;
