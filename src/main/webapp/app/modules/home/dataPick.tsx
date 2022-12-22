@@ -11,6 +11,13 @@ interface Props {
 }
 
 export const TableDatePicker: FC<Props> = props => {
+  const pickLastMonth = () => {
+    props.pickEndDate(new Date());
+    const monthAgo = new Date();
+    monthAgo.setDate(monthAgo.getDate() - 30);
+    props.pickStartDate(monthAgo);
+  };
+
   return (
     <>
       <div style={{ marginBottom: 20 }}>
@@ -24,7 +31,7 @@ export const TableDatePicker: FC<Props> = props => {
           style={{ marginBottom: 20 }}
         />
       </div>
-      <div>
+      <div style={{ marginBottom: 20 }}>
         <DatePicker
           selected={props.endDate}
           selectsEnd
@@ -35,6 +42,7 @@ export const TableDatePicker: FC<Props> = props => {
           dateFormat={'dd.MM.yy'}
         />
       </div>
+      <button onClick={pickLastMonth}>Выбрать последний месяц</button>
     </>
   );
 };

@@ -1,7 +1,12 @@
 import React, { FC } from 'react';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const data = [
+interface Props {
+  startDate: Date;
+  endDate: Date;
+}
+
+export const data = [
   {
     date: '2022-07-20',
     uv: 4000,
@@ -45,11 +50,6 @@ const data = [
     amt: 2100,
   },
 ];
-
-interface Props {
-  startDate: Date;
-  endDate: Date;
-}
 
 const isInDateInterval = (start: Date, end: Date, myDate: Date): boolean => myDate > start && myDate < end;
 
