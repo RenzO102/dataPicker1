@@ -1,7 +1,8 @@
 package com.mycompany.myapp.web.rest;
 
-import com.mycompany.myapp.web.rest.Bobla;
+import com.mycompany.myapp.web.rest.DataPick;
 import com.mycompany.myapp.web.rest.GetData;
+import com.mycompany.myapp.web.rest.UserMetric;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,8 +21,16 @@ public class NameDate {
     @Autowired
     private GetData getData;
 
-    @GetMapping("/bobla")
-    public List getBobla() {
+    @GetMapping("/userMetric/{period}")
+    public List getUserMetric(@PathVariable String period) {
+        switch (period) {
+            case "week":
+                return getData.list();
+            case "month":
+                return getData.list();
+            case "quarter":
+                return getData.list();
+        }
         return getData.list();
     }
 }

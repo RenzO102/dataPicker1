@@ -5,10 +5,11 @@ import axios from 'axios';
 interface Props {
   startDate: Date;
   endDate: Date;
+  //   weekDate : Date;
 }
 
-const a = () => {
-  axios.get<any>('bobla').then(response => {
+const getDate = (period: 'week' | 'month' | 'quarter') => {
+  axios.get<any>(`userMetric/${period}`).then(response => {
     console.log(response);
   });
 };
@@ -83,7 +84,7 @@ export const Graf1: FC<Props> = props => {
       <YAxis />
       <Legend />
       <Tooltip />
-      <Bar dataKey="yandex" stackId="a" fill="#8884d8" onClick={a} />
+      <Bar dataKey="yandex" stackId="a" fill="#8884d8" onClick={() => getDate('week')} />
       <Bar dataKey="mail" stackId="a" fill="#82ca9d" onClick={onClickYa} />
     </BarChart>
   );
