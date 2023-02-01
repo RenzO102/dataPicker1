@@ -31,43 +31,13 @@ public class DataPick {
         userMetric("2022-06-20, 65, 565");
     }
 
-    private void userMetricWeek(String order) {
+    private void userMetric(String order) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(getDate(order));
 
         List<String> datesList;
         if (dates.get(calendar.get(Calendar.WEEK_OF_YEAR)) != null) {
             datesList = dates.get(calendar.get(Calendar.WEEK_OF_YEAR));
-        } else {
-            datesList = new ArrayList<>();
-        }
-        datesList.add(order);
-
-        dates.put(calendar.get(Calendar.WEEK_OF_YEAR), datesList);
-    }
-
-    private void userMetricMonth(String order) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(getDate(order));
-
-        List<String> datesList;
-        if (dates.get(calendar.get(Calendar.MONTH_OF_YEAR)) != null) {
-            datesList = dates.get(calendar.get(Calendar.MONTH_OF_YEAR));
-        } else {
-            datesList = new ArrayList<>();
-        }
-        datesList.add(order);
-
-        dates.put(calendar.get(Calendar.WEEK_OF_YEAR), datesList);
-    }
-
-    private void userMetricQuarter(String order) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(getDate(order));
-
-        List<String> datesList;
-        if (dates.get(calendar.get(Calendar.MONTH_OF_YEAR)) != null) {
-            datesList = dates.get(calendar.get(Calendar.MONTH_OF_YEAR));
         } else {
             datesList = new ArrayList<>();
         }

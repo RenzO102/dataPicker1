@@ -19,18 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class NameDate {
 
     @Autowired
-    private GetData getData;
+    private DataPick dataPick;
 
-    @GetMapping("/userMetric/{period}")
+    @GetMapping("userMetric")
     public List getUserMetric(@PathVariable String period) {
-        switch (period) {
-            case "week":
-                return getData.list();
-            case "month":
-                return getData.list();
-            case "quarter":
-                return getData.list();
-        }
-        return getData.list();
+        return convertedDate;
     }
 }
