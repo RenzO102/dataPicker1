@@ -42,7 +42,6 @@ public class DataPick {
             datesList = new ArrayList<>();
         }
         datesList.add(order);
-
         dates.put(calendar.get(Calendar.WEEK_OF_YEAR), datesList);
     }
 
