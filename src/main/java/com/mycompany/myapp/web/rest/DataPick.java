@@ -1,7 +1,7 @@
 package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.web.rest.DataPick;
-import com.mycompany.myapp.web.rest.GetData;
+//import com.mycompany.myapp.web.rest.GetData;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

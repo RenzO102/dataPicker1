@@ -5,12 +5,19 @@ import axios from 'axios';
 interface Props {
   startDate: Date;
   endDate: Date;
-  weekDate: Date;
 }
 
 const getDate = week => {
   axios.get<any>(`userMetric`).then(response => {
-    props.weekDate({ userMetric: Date, Yandex, Mail });
+    console.log(response);
+    week({ response });
+  });
+};
+
+const getDateMonth = month => {
+  axios.get<any>(`userMetricMonth`).then(response => {
+    console.log(response);
+    month({ response });
   });
 };
 
@@ -70,7 +77,7 @@ export const Graf1: FC<Props> = props => {
     <BarChart
       width={500}
       height={300}
-      data={dataInterval | props.weekDate}
+      data={getDate}
       margin={{
         top: 20,
         right: 30,
@@ -79,14 +86,16 @@ export const Graf1: FC<Props> = props => {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="date" tickCount="52" />
+      <XAxis dataKey="date" />
       <YAxis />
       <YAxis />
       <Legend />
       <Tooltip />
-      <Bar dataKey="yandex" stackId="a" fill="#8884d8" />
+      <Bar dataKey="yandex" stackId="a" fill="#8884d8" onClick={getDate} />
       <Bar dataKey="mail" stackId="a" fill="#82ca9d" onClick={onClickYa} />
       <button onClick={() => getDate('week')}> {'<'} </button>
+      <button onClick={() => getDateMonth('month')}> {'<'} </button>
+      <button onClick={() => getDate('quarter')}> {'<'} </button>
     </BarChart>
   );
 };
