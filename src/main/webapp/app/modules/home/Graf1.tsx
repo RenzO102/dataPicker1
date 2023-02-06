@@ -77,6 +77,7 @@ export const Graf1: FC<Props> = props => {
     <BarChart
       width={500}
       height={300}
+      // Ниже должны прописаны все const для изменения getDate i getDateMonth
       data={getDate}
       margin={{
         top: 20,
