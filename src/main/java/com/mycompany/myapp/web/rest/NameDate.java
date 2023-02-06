@@ -21,8 +21,6 @@ public class NameDate {
     @Autowired
     private DataPick dataPick;
 
-    private GetData getData;
-
     @GetMapping("userMetric")
     public DataPick dataPick() {
         return dataPick;
@@ -30,6 +28,6 @@ public class NameDate {
 
     @GetMapping("userMetricMonth")
     public Getdata getData() {
-        return getData;
+        return dataPick;
     }
 }
