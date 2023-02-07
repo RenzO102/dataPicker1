@@ -10,7 +10,7 @@ interface Props {
 const getDate = week => {
   axios.get<any>(`userMetric`).then(response => {
     console.log(response);
-    week({ response });
+    //    userMetric({ response });
   });
 };
 
@@ -77,8 +77,7 @@ export const Graf1: FC<Props> = props => {
     <BarChart
       width={500}
       height={300}
-      // Ниже должны прописаны все const для изменения getDate i getDateMonth
-      data={getDate}
+      data={dataInterval}
       margin={{
         top: 20,
         right: 30,
@@ -94,9 +93,8 @@ export const Graf1: FC<Props> = props => {
       <Tooltip />
       <Bar dataKey="yandex" stackId="a" fill="#8884d8" onClick={getDate} />
       <Bar dataKey="mail" stackId="a" fill="#82ca9d" onClick={onClickYa} />
-      <button onClick={() => getDate('week')}> {'<'} </button>
-      <button onClick={() => getDateMonth('month')}> {'<'} </button>
-      <button onClick={() => getDate('quarter')}> {'<'} </button>
+      <button onClick={() => getDate('response')}> </button>
+      <button onClick={() => getDateMonth('month')}> </button>
     </BarChart>
   );
 };

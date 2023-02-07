@@ -1,8 +1,6 @@
 package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.web.rest.DataPick;
-import com.mycompany.myapp.web.rest.GetData;
-import com.mycompany.myapp.web.rest.UserMetric;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,9 +23,8 @@ public class NameDate {
     public DataPick dataPick() {
         return dataPick;
     }
-
-    @GetMapping("userMetricMonth")
-    public Getdata getData() {
-        return dataPick;
-    }
+    //    @GetMapping("userMetricMonth")
+    //    public DataPick dataPicka() {
+    //        return dataPick;
+    //    }
 }
